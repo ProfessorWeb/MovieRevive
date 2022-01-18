@@ -1,8 +1,8 @@
 import * as model from './model.js';
+import * as observ from './view/observe.js';
 import top5MovieView from './view/top5MovieView.js';
 import MovieTrendingView from './view/MovieTrendingVIew.js';
-import * as observ from './view/observe.js';
-
+import SearchMovieView from './view/searchMovie.js';
 import 'core-js/stable';
 import 'regenerator-runtime';
 
@@ -18,9 +18,22 @@ const MovieTrending = async function () {
   MovieTrendingView.render(top5);
 };
 
+const searchMovie = async function () {
+  try {
+    const query = SearchMovieView.getQuery;
+    if (!query) return;
+    const data = await model.SearchMovie(queryMovie);
+    searchMovie.render(data);
+  } catch (err) {
+    throw err;
+  }
+};
+
 const init = function () {
-  top5Movie();
-  MovieTrending();
+  // top5Movie();
+  // MovieTrending();
+
+  SearchMovieView._addHandlerSearch();
 };
 
 init(); // Start App

@@ -17,3 +17,11 @@ export const getMovieTrending = async function () {
 
   return data;
 };
+
+export const SearchMovie = async function (movie) {
+  const data =
+    getJSON(`https://api.themoviedb.org/3/search/movie?language=en-US&query=${movie}&include_adult=false
+  `);
+
+  return data;
+};
