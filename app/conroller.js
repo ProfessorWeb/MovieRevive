@@ -22,7 +22,7 @@ const searchMovie = async function () {
   try {
     const query = SearchMovieView.getQuery;
     if (!query) return;
-    const data = await model.SearchMovie(queryMovie);
+    const data = await model.SearchMovie(query);
     searchMovie.render(data);
   } catch (err) {
     throw err;
@@ -33,7 +33,7 @@ const init = function () {
   // top5Movie();
   // MovieTrending();
 
-  SearchMovieView._addHandlerSearch();
+  SearchMovieView._addHandlerSearch(searchMovie);
 };
 
 init(); // Start App

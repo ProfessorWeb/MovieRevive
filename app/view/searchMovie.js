@@ -12,7 +12,7 @@ class SearchMovieView extends View {
   _addHandlerSearch(handler) {
     window.addEventListener('submit', function (e) {
       e.preventDefault();
-      console.log('asd');
+      handler();
     });
   }
 

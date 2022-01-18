@@ -1,5 +1,5 @@
 import { API_KEY } from './config.js';
-import { getJSON } from './helpers.js';
+import { getJSON, getJSONSearch } from './helpers.js';
 
 const state = {
   query: {},
@@ -19,9 +19,7 @@ export const getMovieTrending = async function () {
 };
 
 export const SearchMovie = async function (movie) {
-  const data =
-    getJSON(`https://api.themoviedb.org/3/search/movie?language=en-US&query=${movie}&include_adult=false
-  `);
+  const data = getJSONSearch(undefined, movie);
 
   return data;
 };
