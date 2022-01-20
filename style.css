@@ -154,6 +154,11 @@ footer {
 /*Media Query*/
 
 @media only screen and (max-width: 600px) {
+  #top-5 {
+    padding-top: 10%;
+    background: white;
+  }
+
   .title-h3 {
     font-size: 1.125rem;
   }
@@ -172,5 +177,10 @@ footer {
   .input-group {
     width: auto;
     margin: auto;
+  }
+
+  .card {
+    width: 50%;
+    padding-top: 3%;
   }
 }
