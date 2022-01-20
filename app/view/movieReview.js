@@ -1,7 +1,6 @@
 class top5Movie {
   _data;
   _parentElement = document.querySelector('.row');
-  body = (document.querySelector('body').style.background = 'rgb(45, 52, 54)');
 
   render(data) {
     this._data = data;
@@ -35,7 +34,7 @@ class top5Movie {
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title col 6">${movie.title}</h5>
+          <h2 class="card-title col 6 movie-title">${movie.title}</h2>
           <hr />
           <p class="card-text">
            ${movie.overview}

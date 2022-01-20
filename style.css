@@ -50,15 +50,16 @@ footer {
 #movie-block {
   margin: auto;
   padding-top: 1%;
-  background: white;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 #movie {
-  margin-top: 2%;
   padding: 2%;
-  background-color: rgb(45, 52, 54);
+  background-color: rgb(0 0 0 / 70%);
   color: #fff;
   width: 100%;
+  font-family: 'Mitr', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 /*CLASS*/
@@ -69,6 +70,10 @@ footer {
 
 .title-h3 {
   font-size: 3.125rem;
+}
+
+.movie-title {
+  font-family: 'Open Sans, sans-serif';
 }
 
 .p-about {
@@ -125,7 +130,7 @@ footer {
 }
 
 .movie-review {
-  background-color: rgb(45, 52, 54);
+  background-color: rgb(0 0 0 / 80%);
   color: #fff;
 }
 

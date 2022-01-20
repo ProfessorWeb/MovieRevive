@@ -10,16 +10,24 @@ import 'core-js/stable';
 import 'regenerator-runtime';
 
 const top5Movie = async function () {
-  const data = await model.getMovieTop5();
-  const top5 = data.results.slice(0, 5);
-  top5MovieView.render(top5);
+  try {
+    const data = await model.getMovieTop5();
+    const top5 = data.results.slice(0, 5);
+    top5MovieView.render(top5);
+  } catch (err) {
+    throw err;
+  }
 };
 
 const MovieTrending = async function () {
-  const data = await model.getMovieTrending();
-  const top5 = data.results.slice(0, 5);
+  try {
+    const data = await model.getMovieTrending();
+    const top5 = data.results.slice(0, 5);
 
-  MovieTrendingView.render(top5);
+    MovieTrendingView.render(top5);
+  } catch (err) {
+    throw err;
+  }
 };
 
 const searchMovie = async function () {

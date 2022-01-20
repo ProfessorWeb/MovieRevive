@@ -18,7 +18,12 @@ class SearchMovieView extends View {
   _addHandlerSearch(handler) {
     this.form.addEventListener('submit', function (e) {
       e.preventDefault();
+
+      /* Style */
+      document.getElementById('movie-block').style.backgroundColor = '#fff';
+      document.querySelector('.container').classList.remove('hidden');
       document.querySelector('.search-movie-container').innerHTML = '';
+
       handler();
     });
   }
