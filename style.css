@@ -151,8 +151,6 @@ footer {
     11px 11px 1px rgba(0, 0, 0, 0.5), 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
-/*Media Query*/
-
 @media only screen and (max-width: 600px) {
   #top-5 {
     padding-top: 10%;
@@ -179,5 +177,8 @@ footer {
     margin: auto;
   }
 
-
+  .card {
+    width: 50%;
+    padding-top: 3%;
+  }
 }
