@@ -16,7 +16,7 @@ class TrendingMovie extends View {
     />
     <div class="card-body">
       <p class="card-text text-center">
-      <a href="#" class="link-dark">
+      <a href="movie.html#${result.id}" class="link-dark">
        ${result.title}</a>
       </p>
     </div>
