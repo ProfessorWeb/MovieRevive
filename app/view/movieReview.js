@@ -1,10 +1,10 @@
 class top5Movie {
   _data;
   _parentElement = document.querySelector('.row');
+  cardElement = document.querySelector('.card');
 
   render(data) {
     this._data = data;
-
     const markup = this._generateMarkup();
     if (!markup) return; // Guard Clauses
     this._parentElement.innerHTML = markup;
@@ -13,7 +13,7 @@ class top5Movie {
   _generateMarkup() {
     const { Trailer, movie } = this._data.query; // object destructure
 
-    return `<div class="card p-1 mx-auto movie-review" style="max-width: 100%">
+    return `<div class="card p-1 mx-auto movie-review" style="width: auto !important">
     <div class="row g-0">
       <div class="col-md-4">
         <img
