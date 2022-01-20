@@ -27,9 +27,11 @@ class top5Movie {
           <hr />
           <h6>Rating : ${movie.vote_average} ⭐</h6>
           <hr />
-          <h6>genres : ${movie.genres.map(lang => lang.name)}</h6>
+          <h6>genres : ${movie.genres.map(lang => lang.name).join(' , ')}</h6>
           <hr />
-          <h6>languages : ${movie.spoken_languages.map(lang => lang.name)}</h6>
+          <h6>languages : ${movie.spoken_languages
+            .map(lang => lang.name)
+            .join(' , ')}</h6>
         </div>
       </div>
       <div class="col-md-8">
