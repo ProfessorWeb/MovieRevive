@@ -6,8 +6,15 @@ import MovieTrendingView from './view/MovieTrendingVIew.js';
 import SearchMovieView from './view/searchMovie.js';
 import movieReview from './view/movieReview.js';
 
-import 'core-js/stable';
-import 'regenerator-runtime';
+import 'core-js/stable'; //  Babel
+import 'regenerator-runtime'; 
+
+/* We use it.
+Because of Babel.
+It converts our code to es5 and that's why we need this model.
+Because in ES5 there was no await.
+
+await this is something new it came out in ES6. */
 
 const top5Movie = async function () {
   try {
