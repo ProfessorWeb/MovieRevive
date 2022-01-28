@@ -7,7 +7,7 @@ import SearchMovieView from './view/searchMovie.js';
 import movieReview from './view/movieReview.js';
 
 import 'core-js/stable'; //  Babel
-import 'regenerator-runtime'; 
+import 'regenerator-runtime';
 
 /* We use it.
 Because of Babel.
@@ -54,7 +54,7 @@ const getMovieBYID = async function () {
     await model.getMovieID(movie_id);
     movieReview.render(model.state);
   } catch (err) {
-    throw err;
+    movieReview.rednerError();
   }
 };
 
