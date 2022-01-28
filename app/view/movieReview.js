@@ -10,6 +10,12 @@ class top5Movie {
     this._parentElement.innerHTML = markup;
   }
 
+  rednerError(messageError = 'Sorry i dont find anyting') {
+    this._parentElement = document.getElementById('movie');
+    const markup = `<h3 class="text-center">${messageError}</h3>`;
+    this._parentElement.insertAdjacentHTML('afterbegin', markup);
+  }
+
   _generateMarkup() {
     const { Trailer, movie } = this._data.query; // object destructure
 
