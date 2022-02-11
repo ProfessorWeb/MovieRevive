@@ -9,6 +9,7 @@ export const state = {
   query: {
     Trailer: {},
     movie: {},
+    bookmarks: [], // list all movie you like
   },
 };
 
@@ -54,3 +55,13 @@ export const getMovieID = async function (movie_id) {
     throw err;
   }
 };
+
+export const save = function () {
+  localStorage.setItem('saveBookMark', JSON.stringify(state.query.bookmarks));
+};
+
+const getItem = function () {
+  const data = localStorage.getItem('saveBookMark');
+  if (data) state.query.bookmarks = JSON.parse(data);
+};
+getItem();

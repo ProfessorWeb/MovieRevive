@@ -5,6 +5,7 @@ import top5MovieView from './view/top5MovieView.js';
 import MovieTrendingView from './view/MovieTrendingVIew.js';
 import SearchMovieView from './view/searchMovie.js';
 import movieReview from './view/movieReview.js';
+import BookMarkView from './view/BookMarkView.js';
 
 import 'core-js/stable'; //  Babel
 import 'regenerator-runtime';
@@ -51,23 +52,55 @@ const searchMovie = async function () {
 const getMovieBYID = async function () {
   try {
     const movie_id = window.location.hash.slice(1);
+    const MovieQuery = model.state.query;
     await model.getMovieID(movie_id);
+    if (MovieQuery.bookmarks.some(book => book.id === +movie_id))
+      MovieQuery.movie.bookmarkd = true;
+    else MovieQuery.movie.bookmarkd = false;
     movieReview.render(model.state);
   } catch (err) {
     movieReview.rednerError();
   }
 };
 
+const AddBookMark = function () {
+  const MovieQuery = model.state.query;
+  const findIndex = MovieQuery.bookmarks.findIndex(
+    index => index.id === MovieQuery.movie.id
+  );
+
+  if (!MovieQuery.bookmarks.some(book => book.id === MovieQuery.movie.id)) {
+    MovieQuery.movie.bookmarkd = true;
+    MovieQuery.bookmarks.push(MovieQuery.movie);
+    location.reload();
+  } else {
+    MovieQuery.movie.bookmarkd = false;
+    MovieQuery.bookmarks.splice(findIndex, 1);
+    location.reload();
+  }
+  model.save();
+};
+
+const bookmark = function () {
+  BookMarkView.render(model.state.query.bookmarks);
+};
+
 const init = function () {
   if (location.pathname === '/index.html' || location.pathname === '/') {
     top5Movie();
     MovieTrending();
+    bookmark();
   }
 
-  if (location.pathname === '/movie.html') getMovieBYID();
+  if (location.pathname === '/movie.html') {
+    getMovieBYID();
+    movieReview.addHandlerBookMark(AddBookMark);
+  }
 
-  if (location.pathname === '/search-movie.html')
+  if (location.pathname === '/search-movie.html') {
     SearchMovieView._addHandlerSearch(searchMovie);
+    bookmark();
+  }
 };
 
 init(); // Start App

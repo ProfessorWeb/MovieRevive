@@ -16,6 +16,14 @@ class top5Movie {
     this._parentElement.insertAdjacentHTML('afterbegin', markup);
   }
 
+  addHandlerBookMark(handler) {
+    window.addEventListener('click', function (e) {
+      if (e.target.classList.contains('btn-primary')) {
+        handler();
+      }
+    });
+  }
+
   _generateMarkup() {
     const { Trailer, movie } = this._data.query; // object destructure
 
@@ -36,12 +44,16 @@ class top5Movie {
           <h6>genres : ${movie.genres.map(lang => lang.name)}</h6>
           <hr />
           <h6>languages : ${movie.spoken_languages.map(lang => lang.name)}</h6>
+       <button class="js-bookmark btn btn-primary btn-lg">${
+         movie.bookmarkd ? 'Remove Bookmark' : 'Add Bookmark'
+       }</button>
         </div>
       </div>
       <div class="col-md-8">
         <div class="card-body">
           <h2 class="card-title col 6 movie-title">${movie.title}</h2>
           <hr />
+          
           <p class="card-text">
            ${movie.overview}
           </p>
